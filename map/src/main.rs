@@ -20,6 +20,10 @@ fn add(t:TokenType,s:&str){
     println!("{0}:{1}",t as i32,s);
 }
 
+fn parse(s:& str,format:&str)->(&str,i32){
+    
+}
+
 fn main(){
     let input = "{range  (1,10)}[3]+'a'";
     let mut start = 0;
