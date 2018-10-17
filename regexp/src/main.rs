@@ -1,22 +1,31 @@
 enum Op{
+    Char(u8),
+    FromTo(u8,u8),
+    Repeat(i32),
+    Append,
     Or,
-    FromTo(char,char),
-    Link,
 }
 
 struct Node{
     v:Op,
-    c0:Box<Node>,
-    c1:Box<Node>
+    c0:Option<Box<Node>>,
+    c1:Option<Box<Node>>
 }
 
-fn parse(r:&str){
-    
+fn parse(input:&str){
+    let mut start = 0;
+    let len = input.len();
+    let bytes = input.as_bytes();
+    while start < len{
+        let c = bytes[start];
+        if (c >= b'a' && c<=b'z') || (c>=b'A' && c<=b'Z') || (c>=b'0' && c<=b'9'){
+            let node = Node{v:Op::Char(c),c0:Option::None,c1:Option::None};
+        }
+    }
 }
 
 
 fn main() {
-    let s0 = "int a = 3;";
-    let s1 = "if( a >= 0){}";
+    parse("a-zA-Z");
     println!("Hello, world!");
 }
